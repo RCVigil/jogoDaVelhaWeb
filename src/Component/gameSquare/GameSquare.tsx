@@ -6,16 +6,20 @@ export const GameSquare: React.FC = () => {
   const {
     player1,
     player2,
+    victory,
     setScore,
     stopPlaying,
     setStopPlaying,
+    resetGame, setResetGame,
+    nextGame, setNextGame,
+    cells, setCells,
   } = useContext(AppContext);
   const numRows = 3;
   const numCols = 3;
 
-  const initialCells = Array(numRows * numCols).fill(null);
-  const [cells, setCells] = useState<Array<string | null>>(initialCells);
+  console.log(cells)
   const [xIsNext, setXIsNext] = useState<boolean>(true);
+  console.log(xIsNext)
   const [victoryGame] = useState<Array<Array<number>>>([
     [1, 2, 3],
     [4, 5, 6],
