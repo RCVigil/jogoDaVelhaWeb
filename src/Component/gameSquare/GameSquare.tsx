@@ -6,20 +6,21 @@ export const GameSquare: React.FC = () => {
   const {
     player1,
     player2,
-    victory,
+    setVictory,
     setScore,
     stopPlaying,
     setStopPlaying,
-    resetGame, setResetGame,
-    nextGame, setNextGame,
-    cells, setCells,
+    cells,
+    setCells,
+    winningCells,
+    setWinningCells,
   } = useContext(AppContext);
   const numRows = 3;
   const numCols = 3;
 
-  console.log(cells)
+  console.log(cells);
   const [xIsNext, setXIsNext] = useState<boolean>(true);
-  console.log(xIsNext)
+  console.log(xIsNext);
   const [victoryGame] = useState<Array<Array<number>>>([
     [1, 2, 3],
     [4, 5, 6],
@@ -42,6 +43,7 @@ export const GameSquare: React.FC = () => {
         cells[a - 1] === cells[b - 1] &&
         cells[a - 1] === cells[c - 1]
       ) {
+        setWinningCells([a, b, c]); // Aqui nós armazenamos a sequência vencedora
         return cells[a - 1] as "X" | "O";
       }
     }
@@ -64,6 +66,13 @@ export const GameSquare: React.FC = () => {
       ...prevScore,
       [winner]: prevScore[winner] + 1,
     }));
+    if (winner === "X") {
+      setVictory(player1);
+    } else if (winner === "O") {
+      setVictory(player2);
+    } else if (winner === "draws") {
+      setVictory("draw");
+    }
   };
 
   const selectSquare = (e: React.MouseEvent<HTMLTableDataCellElement>) => {
@@ -96,14 +105,16 @@ export const GameSquare: React.FC = () => {
                     data-cell-key={cellKey}
                     onClick={selectSquare}
                     className={
-                                          cellKey === 5
-                                            ? "tdGameS square5"
-                                            : cellKey === 2 || cellKey === 8
-                                            ? "tdGameS square28"
-                                            : cellKey === 4 || cellKey === 6
-                                            ? "tdGameS square46"
-                                            : "tdGameS"
-                                        }
+                      winningCells?.includes(cellKey) // Se a célula for parte da sequência vencedora...
+                      ? "tdGameS winning"
+                      : cellKey === 5
+                        ? "tdGameS square5"
+                        : cellKey === 2 || cellKey === 8
+                        ? "tdGameS square28"
+                        : cellKey === 4 || cellKey === 6
+                        ? "tdGameS square46"
+                        : "tdGameS"
+                    }
                   >
                     <p className="h1XO">{cells[cellKey - 1]}</p>
                   </td>

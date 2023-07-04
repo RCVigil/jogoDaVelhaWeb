@@ -14,6 +14,7 @@ export default function AppProvider(props: IProvider): React.ReactElement {
   const [stopPlaying, setStopPlaying] = React.useState(false);
   const [resetGame, setResetGame] = React.useState(false);
   const [nextGame, setNextGame] = React.useState(false);
+  const [winningCells, setWinningCells] = React.useState<Array<number>>();
 
   const numRows = 3;
   const numCols = 3;
@@ -22,21 +23,15 @@ export default function AppProvider(props: IProvider): React.ReactElement {
   const [cells, setCells] = React.useState<Array<string | null>>(initialCells);
 
   const object = {
-    player1,
-    setPlayer1, // JOGADOR 1
-    player2,
-    setPlayer2, // JOGADOR 2
-    victory,
-    setVictory, // JOGADOR VENCEDOR
-    score,
-    setScore, // PLACAR
-    stopPlaying,
-    setStopPlaying, // BLOQUEAR O JOGO QUANDO HOUVER VITORIA OU TODAS AS CASAS MARCADAS
-    resetGame,
-    setResetGame, // REINICIAR O JOGO COM NOVOS JOGADORES
-    nextGame,
-    setNextGame, // PRÓXIMA PARTIDA COM MESMOS JOGADORES
+    player1, setPlayer1, // JOGADOR 1
+    player2, setPlayer2, // JOGADOR 2
+    victory, setVictory, // JOGADOR VENCEDOR
+    score, setScore, // PLACAR
+    stopPlaying, setStopPlaying, // BLOQUEAR O JOGO QUANDO HOUVER VITORIA OU TODAS AS CASAS MARCADAS
+    resetGame, setResetGame, // REINICIAR O JOGO COM NOVOS JOGADORES
+    nextGame, setNextGame, // PRÓXIMA PARTIDA COM MESMOS JOGADORES
     cells, setCells, // ARMAZENA OS ESPAÇOS CLICADOS
+    winningCells, setWinningCells, // SEQUENCIA VITORIOSA
   };
 
   // Se não tiver nenhuma operação a ser realizada, você pode remover o useEffect

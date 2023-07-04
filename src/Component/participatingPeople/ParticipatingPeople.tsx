@@ -19,13 +19,13 @@ export default function ParticipatingPeople() {
         <ClearIcon
           // sx={{ color: '#fff', mr: 1, my: 0.5 }}
         />
-        <TextField onChange={(e:any) => setPlayer1(e.target.value)} id="input-with-sx1" label="Player 1" variant="standard" />
+        <TextField value={player1} onChange={(e:any) => setPlayer1(e.target.value)} id="input-with-sx1" label="Player 1" variant="standard" />
       </div>
       <div className='divPlayer2'>
         <CircleOutlinedIcon
           // sx={{ color: '#fff', mr: 1, my: 0.5 }}
         />
-        <TextField onChange={(e:any) => setPlayer2(e.target.value)} id="input-with-sx2" label="Player 2" variant="standard" />
+        <TextField value={player2} onChange={(e:any) => setPlayer2(e.target.value)} id="input-with-sx2" label="Player 2" variant="standard" />
       </div>
     </Box>
   );
