@@ -1,14 +1,14 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import Slide from '@mui/material/Slide';
-import { TransitionProps } from '@mui/material/transitions';
-import AppContext from '../contexts/AppContext';
-import { Typography } from '@mui/material';
+import * as React from "react";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import Slide from "@mui/material/Slide";
+import { TransitionProps } from "@mui/material/transitions";
+import AppContext from "../contexts/AppContext";
+import { Typography } from "@mui/material";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -21,20 +21,15 @@ const Transition = React.forwardRef(function Transition(
 
 export default function AlertDialogSlide() {
   const {
-    victory,
     setVictory,
     player1,
     setPlayer1,
     player2,
     setPlayer2,
     score,
-    nextGame,
     setNextGame,
-    setResetGame,
-    resetGame,
     setScore,
     setStopPlaying,
-    stopPlaying,
     setCells,
     setWinningCells,
   } = React.useContext(AppContext);
@@ -50,21 +45,21 @@ export default function AlertDialogSlide() {
   };
 
   const confirmationClose = () => {
-    console.log("Clicado")
+    console.log("Clicado");
     setNextGame(true);
     setCells([null, null, null, null, null, null, null, null, null]);
-    setPlayer1('')
-    setPlayer2('')
-    setScore({ X: 0, O: 0, draws: 0 })
-    setVictory('')
-    setWinningCells()
+    setPlayer1("");
+    setPlayer2("");
+    setScore({ X: 0, O: 0, draws: 0 });
+    setVictory("");
+    setWinningCells();
     setStopPlaying(false);
-  }
+  };
 
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
-      Reiniciar o Jogo
+        Reiniciar o Jogo
       </Button>
       <Dialog
         open={open}
@@ -79,10 +74,12 @@ export default function AlertDialogSlide() {
             Esta ação irá zerar os nomes e placares.
           </DialogContentText>
         </DialogContent>
-        <Typography variant='h5' sx={{textAlign: "center"}}> 
-          {
-            score.X === score.O ? "Empate" : score.X > score.O ? `${player1} é o Ganhador com ${score.X} Vitórias` : `${player2} é o Ganhador com ${score.O} Vitórias`
-          }
+        <Typography variant="h5" sx={{ textAlign: "center" }}>
+          {score.X === score.O
+            ? "Empate"
+            : score.X > score.O
+            ? `${player1} é o Ganhador com ${score.X} Vitórias`
+            : `${player2} é o Ganhador com ${score.O} Vitórias`}
         </Typography>
         <DialogActions>
           <Button onClick={handleClose}>Cancelar</Button>

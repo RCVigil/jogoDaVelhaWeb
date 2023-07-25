@@ -19,7 +19,7 @@ export default function App() {
         </div>
         <hr className="lineDivisoryFooter" />
         <footer id="footerGame">
-          <FooterGame/>
+          <FooterGame />
         </footer>
       </div>
     </AppProvider>

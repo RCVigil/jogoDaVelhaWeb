@@ -13,7 +13,6 @@ export default function FooterGame() {
     score,
     nextGame,
     setNextGame,
-    setResetGame,
     resetGame,
     setStopPlaying,
     stopPlaying,
@@ -28,8 +27,8 @@ export default function FooterGame() {
   const setNextGameButton = () => {
     setNextGame(true);
     setCells([null, null, null, null, null, null, null, null, null]);
-    setVictory('')
-    setWinningCells()
+    setVictory("");
+    setWinningCells();
     setStopPlaying(false);
   };
 
@@ -39,16 +38,19 @@ export default function FooterGame() {
         <div className="footerScoreBoard">
           <h1 className="victoryFooter">{`Parabéns ${victory}, você venceu esta rodada!`}</h1>
           <div className="buttonFooter">
-            {stopPlaying && (
-              <AlertDialogSlide/>
-            )}
+            {stopPlaying && <AlertDialogSlide />}
             {stopPlaying && (
               <button onClick={setNextGameButton}>Próxima Partida</button>
             )}
           </div>
           <div className="placarFooter">
-            {score.X === score.O ? (<div>Velha: {score.draws}</div>) : (score.X > score.O ? score.X === score.O : 
-            <div>{!player2 ? "" : `${player2}: ${score.O}`}</div>)}
+            {score.X === score.O ? (
+              <div>Velha: {score.draws}</div>
+            ) : score.X > score.O ? (
+              score.X === score.O
+            ) : (
+              <div>{!player2 ? "" : `${player2}: ${score.O}`}</div>
+            )}
           </div>
         </div>
       ) : (

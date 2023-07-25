@@ -106,8 +106,8 @@ export const GameSquare: React.FC = () => {
                     onClick={selectSquare}
                     className={
                       winningCells?.includes(cellKey) // Se a célula for parte da sequência vencedora...
-                      ? "tdGameS winning"
-                      : cellKey === 5
+                        ? "tdGameS winning"
+                        : cellKey === 5
                         ? "tdGameS square5"
                         : cellKey === 2 || cellKey === 8
                         ? "tdGameS square28"
