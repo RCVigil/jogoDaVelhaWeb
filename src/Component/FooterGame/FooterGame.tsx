@@ -11,18 +11,12 @@ export default function FooterGame() {
     player1,
     player2,
     score,
-    nextGame,
     setNextGame,
-    resetGame,
     setStopPlaying,
     stopPlaying,
     setCells,
     setWinningCells,
   } = React.useContext(AppContext);
-  console.log(stopPlaying);
-
-  console.log(resetGame);
-  console.log(nextGame);
 
   const setNextGameButton = () => {
     setNextGame(true);

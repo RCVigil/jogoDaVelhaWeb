@@ -1,8 +1,11 @@
 import React, { useContext, useState } from "react";
 import "./_gameSquare.sass";
 import AppContext from "../../contexts/AppContext";
+import { PlayingO, PlayingX } from "../../utils/Playing";
 
+// Componente GameSquare que representa o tabuleiro do jogo.
 export const GameSquare: React.FC = () => {
+  // Obtém valores do contexto global do aplicativo.
   const {
     player1,
     player2,
@@ -14,13 +17,14 @@ export const GameSquare: React.FC = () => {
     setCells,
     winningCells,
     setWinningCells,
+    xIsNext,
+    setXIsNext,
   } = useContext(AppContext);
+
   const numRows = 3;
   const numCols = 3;
 
-  console.log(cells);
-  const [xIsNext, setXIsNext] = useState<boolean>(true);
-  console.log(xIsNext);
+  // Possíveis combinações vencedoras em um jogo da velha.
   const [victoryGame] = useState<Array<Array<number>>>([
     [1, 2, 3],
     [4, 5, 6],
@@ -32,9 +36,11 @@ export const GameSquare: React.FC = () => {
     [3, 5, 7],
   ]);
 
+  // Gera arrays para representar as linhas e colunas do tabuleiro.
   const rows = Array.from({ length: numRows });
   const cols = Array.from({ length: numCols });
 
+  // Função para verificar o vencedor do jogo.
   const checkWinner = (): "X" | "O" | "draw" | null => {
     for (let i = 0; i < victoryGame.length; i++) {
       const [a, b, c] = victoryGame[i];
@@ -43,7 +49,7 @@ export const GameSquare: React.FC = () => {
         cells[a - 1] === cells[b - 1] &&
         cells[a - 1] === cells[c - 1]
       ) {
-        setWinningCells([a, b, c]); // Aqui nós armazenamos a sequência vencedora
+        setWinningCells([a, b, c]); // Armazena a sequência vencedora.
         return cells[a - 1] as "X" | "O";
       }
     }
@@ -53,14 +59,16 @@ export const GameSquare: React.FC = () => {
     return null;
   };
 
+  // Efeito que verifica o vencedor ou empate quando as células mudam.
   React.useEffect(() => {
     const winner = checkWinner();
     if (winner) {
       updateScore(winner === "draw" ? "draws" : winner);
-      setStopPlaying(true); // Definir stopPlaying como true quando houver um vencedor ou empate
+      setStopPlaying(true); // Define stopPlaying como true quando há um vencedor ou empate.
     }
-  }, [cells]); // Monitorando as mudanças no estado das cells
+  }, [cells]);
 
+  // Atualiza o placar e define o vencedor após o término do jogo.
   const updateScore = (winner: "X" | "O" | "draws") => {
     setScore((prevScore: { [x: string]: number }) => ({
       ...prevScore,
@@ -75,9 +83,10 @@ export const GameSquare: React.FC = () => {
     }
   };
 
+  // Função para selecionar uma célula do tabuleiro.
   const selectSquare = (e: React.MouseEvent<HTMLTableDataCellElement>) => {
     if (stopPlaying) {
-      return; // Se stopPlaying for verdadeiro, retornar sem fazer alterações
+      return; // Se stopPlaying for verdadeiro, retorna sem fazer alterações.
     }
 
     const cellKey = Number(e.currentTarget.dataset.cellKey);
@@ -92,7 +101,8 @@ export const GameSquare: React.FC = () => {
   };
 
   return player2 !== "" && player1 !== "" ? (
-    <div>
+    // Renderiza o tabuleiro do jogo se os nomes dos jogadores estiverem definidos.
+    <div className="layingActiveGS">
       <table id="firstDivGameSquare">
         <tbody>
           {rows.map((_, r) => (
@@ -124,8 +134,10 @@ export const GameSquare: React.FC = () => {
           ))}
         </tbody>
       </table>
+      {!xIsNext ? <PlayingO /> : <PlayingX />}
     </div>
   ) : (
+    // Exibe uma mensagem de digitação dos nomes dos jogadores se eles não estiverem definidos.
     <div className="firstDivGameSquareH1">
       <h1 className="h1Names">Por favor digite o nome dos jogadores.</h1>
     </div>

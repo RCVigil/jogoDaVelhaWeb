@@ -45,7 +45,6 @@ export default function AlertDialogSlide() {
   };
 
   const confirmationClose = () => {
-    console.log("Clicado");
     setNextGame(true);
     setCells([null, null, null, null, null, null, null, null, null]);
     setPlayer1("");
