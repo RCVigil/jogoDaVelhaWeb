@@ -16,7 +16,7 @@ export function PlayingX() {
   return (
     <div style={stylePlaying}>
       <AlertTitle>É a vez de: </AlertTitle>
-      <ClearIcon />
+      {/* <ClearIcon /> */}
       <br />
       <strong>{player1}</strong>
       <p>jogar.</p>
@@ -29,7 +29,7 @@ export function PlayingO() {
   return (
     <div style={stylePlaying}>
       <AlertTitle>É a vez de </AlertTitle>
-      <CircleOutlinedIcon />
+      {/* <CircleOutlinedIcon /> */}
       <br />
       <strong>{player2}</strong>
       <p>jogar.</p>
