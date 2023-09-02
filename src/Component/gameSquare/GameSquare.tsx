@@ -139,7 +139,7 @@ export const GameSquare: React.FC = () => {
   ) : (
     // Exibe uma mensagem de digitação dos nomes dos jogadores se eles não estiverem definidos.
     <div className="firstDivGameSquareH1">
-      <h1 className="h1Names">Por favor digite o nome dos jogadores.</h1>
+      <h1 className="h1Names">Por favor digite o nome dos jogadores</h1>
     </div>
   );
 };
