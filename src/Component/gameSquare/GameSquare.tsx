@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
-import "./_gameSquare.sass";
 import AppContext from "../../contexts/AppContext";
 import { PlayingO, PlayingX } from "../../utils/Playing";
+
+import "./_gameSquare.sass";
 
 // Componente GameSquare que representa o tabuleiro do jogo.
 export const GameSquare: React.FC = () => {

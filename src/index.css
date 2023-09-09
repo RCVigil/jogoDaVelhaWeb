@@ -139,12 +139,15 @@ table {
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-image: url("./images/backgroundVS.webp");
+  background-image: url("./images/backgroundVS.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center center;
 
   font-synthesis: none;
+  height: 100vh;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100vw;
 }

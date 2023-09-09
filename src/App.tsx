@@ -14,9 +14,9 @@ export default function App() {
           <ParticipatingPeople />
         </header>
         <hr className="lineDivisory" />
-        <div id="bodyGame">
+        <main id="bodyGame">
           <GameSquare />
-        </div>
+        </main>
         <hr className="lineDivisoryFooter" />
         <footer id="footerGame">
           <FooterGame />

@@ -10,6 +10,8 @@ import { TransitionProps } from "@mui/material/transitions";
 import AppContext from "../contexts/AppContext";
 import { Typography } from "@mui/material";
 
+import "./_alertDialogFinished.sass";
+
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
     children: React.ReactElement<any, any>;

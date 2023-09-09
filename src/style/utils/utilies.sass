@@ -1,0 +1,49 @@
+@import '../variables.sass'
+
+// Mixin para estilos em telas pequenas
+// ate 425px
+@mixin small-screen
+    @media (max-width: $mobile-breakpoint)
+        @content
+
+// Mixin para estilos em telas médias
+// de 426px a 768px
+@mixin medium-screen
+    @media (min-width: ($mobile-breakpoint + 1)) and (max-width: $tablet-breakpoint)
+        @content
+
+// Mixin para estilos em tablets grandes na vertical (iPad Air)
+// de 769px a 820px
+@mixin large-tablet-screen
+    @media (min-width: ($tablet-breakpoint + 1)) and (max-width: $tablet10P-breakpoint)
+        @content
+
+// Mixin para estilos em telas grandes
+// de 831px a 1023px
+@mixin large-screen
+    @media (min-width: ($tablet10P-breakpoint + 1)) and (max-width: $desktop-breakpoint)
+        @content
+
+// Mixin para estilos em telas extra grandes
+// de 1024px até 1365px
+@mixin extra-large-screen
+    @media (min-width: ($desktop-breakpoint + 1)) and (max-width: $screen-Large)
+        @content
+
+// Mixin para estilos em telas full screen
+// de 1366px até 1920px
+@mixin full-large-screen
+    @media (min-width: ($screen-Large + 1)) and (max-width: $screen-Extra-Large)
+        @content
+
+// Mixin para estilos em telas full screen
+// de 1920px até 2159px
+@mixin full-HD-screen
+    @media (min-width: ($screen-Extra-Large + 1)) and (max-width: $screen-FullHD)
+        @content
+
+// Mixin para estilos em telas full screen
+// acima de 2160px
+@mixin full-SuperHd-screen
+    @media (min-width: ($screen-FullHD + 1))
+        @content

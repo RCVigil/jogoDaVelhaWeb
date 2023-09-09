@@ -20,7 +20,8 @@ export default function ParticipatingPeople() {
       {/* Div para o jogador 1 */}
       <div className="divPlayer1">
         <ClearIcon
-        // Ícone do jogador 1 que é o X.
+          // Ícone do jogador 1 que é o X.
+          sx={{ color: "blue", fontWeight: "700" }}
         />
         <TextField
           // Valor do jogador 1 exibido no campo de entrada.
@@ -30,15 +31,23 @@ export default function ParticipatingPeople() {
           id="input-with-sx1"
           // Rótulo para o campo de entrada do jogador 1.
           label="Player 1"
+          sx={{
+            color: "#ffffff",
+            label: {
+              color: "blue",
+              fontSize: "1.5vh",
+              textAlign: "center",
+              fontWeight: "800",
+              display: "flex",
+              alignSelf: "center",
+            },
+          }}
           // Variante do campo de entrada.
           variant="standard"
         />
       </div>
       {/* Div para o jogador 2 */}
       <div className="divPlayer2">
-        <CircleOutlinedIcon
-        // Ícone de círculo para o jogador 2.
-        />
         <TextField
           // Valor do jogador 2 exibido no campo de entrada.
           value={player2}
@@ -49,6 +58,20 @@ export default function ParticipatingPeople() {
           label="Player 2"
           // Variante do campo de entrada.
           variant="standard"
+          sx={{
+            color: "#ffffff",
+            label: {
+              color: "red",
+              fontSize: "1.5vh",
+              textAlign: "end",
+              fontWeight: "800",
+              width: "100%",
+            },
+          }}
+        />
+        <CircleOutlinedIcon
+          // Ícone de círculo para o jogador 2.
+          sx={{ color: "red", fontWeight: "700" }}
         />
       </div>
     </Box>
