@@ -34,7 +34,9 @@ export default function FooterGame() {
           <div className="buttonFooter">
             {stopPlaying && <AlertDialogSlide />}
             {stopPlaying && (
-              <button onClick={setNextGameButton}>Próxima Partida</button>
+              <button className="buttonNextGame" onClick={setNextGameButton}>
+                Próxima Partida
+              </button>
             )}
           </div>
           <div className="placarFooter">

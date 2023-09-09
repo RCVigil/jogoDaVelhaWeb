@@ -59,7 +59,11 @@ export default function AlertDialogSlide() {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button
+        variant="outlined"
+        onClick={handleClickOpen}
+        sx={{ height: "6vw", fontSize: "3vw" }}
+      >
         Reiniciar o Jogo
       </Button>
       <Dialog
