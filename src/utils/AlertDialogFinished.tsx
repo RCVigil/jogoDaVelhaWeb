@@ -72,23 +72,56 @@ export default function AlertDialogSlide() {
         keepMounted
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
+        sx={{
+          height: "35vh",
+          width: "50vw",
+          position: "fixed",
+          top: "25%",
+          left: "25%",
+        }}
       >
-        <DialogTitle>{"Certeza que vai Reiniciar a partida?"}</DialogTitle>
+        <DialogTitle
+          sx={{ fontSize: "2rem", color: "green", textAlign: "center" }}
+        >
+          {"Certeza que você quer Reiniciar a partida?"}
+        </DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">
+          <DialogContentText
+            sx={{ fontSize: "1.2rem", color: "green", textAlign: "center" }}
+            id="alert-dialog-slide-description"
+          >
             Esta ação irá zerar os nomes e placares.
           </DialogContentText>
         </DialogContent>
         <Typography variant="h5" sx={{ textAlign: "center" }}>
-          {score.X === score.O
-            ? "Empate"
-            : score.X > score.O
-            ? `${player1} é o Ganhador com ${score.X} Vitórias`
-            : `${player2} é o Ganhador com ${score.O} Vitórias`}
+          {score.X === score.O ? (
+            "Empate"
+          ) : score.X > score.O ? (
+            <Typography
+              variant="body1"
+              sx={{ color: "blue", fontWeight: "700" }}
+            >{`${player1} é o Ganhador com ${score.X} Vitórias`}</Typography>
+          ) : (
+            <Typography
+              variant="body1"
+              sx={{ color: "red", fontWeight: "700" }}
+            >{`${player2} é o Ganhador com ${score.O} Vitórias`}</Typography>
+          )}
         </Typography>
-        <DialogActions>
-          <Button onClick={handleClose}>Cancelar</Button>
-          <Button onClick={confirmationClose}>Reiniciar</Button>
+        <DialogActions
+          sx={{
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+          <Button variant="outlined" onClick={handleClose}>
+            Cancelar
+          </Button>
+          <Button variant="outlined" onClick={confirmationClose}>
+            Reiniciar
+          </Button>
         </DialogActions>
       </Dialog>
     </div>
