@@ -10,8 +10,6 @@ import { TransitionProps } from "@mui/material/transitions";
 import AppContext from "../contexts/AppContext";
 import { Typography } from "@mui/material";
 
-import "./_alertDialogFinished.sass";
-
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
     children: React.ReactElement<any, any>;
@@ -73,7 +71,7 @@ export default function AlertDialogSlide() {
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
         sx={{
-          height: "35vh",
+          height: "50vh",
           width: "50vw",
           position: "fixed",
           top: "25%",
@@ -85,9 +83,14 @@ export default function AlertDialogSlide() {
         >
           {"Certeza que você quer Reiniciar a partida?"}
         </DialogTitle>
-        <DialogContent>
+        <DialogContent sx={{ padding: "3vh" }}>
           <DialogContentText
-            sx={{ fontSize: "1.2rem", color: "green", textAlign: "center" }}
+            sx={{
+              fontSize: "1.2rem",
+              color: "purple",
+              textAlign: "center",
+              fontWeight: "700",
+            }}
             id="alert-dialog-slide-description"
           >
             Esta ação irá zerar os nomes e placares.
@@ -99,12 +102,22 @@ export default function AlertDialogSlide() {
           ) : score.X > score.O ? (
             <Typography
               variant="body1"
-              sx={{ color: "blue", fontWeight: "700" }}
+              sx={{
+                fontSize: "2rem",
+                color: "blue",
+                fontWeight: "700",
+                textAlign: "center",
+              }}
             >{`${player1} é o Ganhador com ${score.X} Vitórias`}</Typography>
           ) : (
             <Typography
               variant="body1"
-              sx={{ color: "red", fontWeight: "700" }}
+              sx={{
+                fontSize: "2rem",
+                color: "red",
+                fontWeight: "700",
+                textAlign: "center",
+              }}
             >{`${player2} é o Ganhador com ${score.O} Vitórias`}</Typography>
           )}
         </Typography>
@@ -119,7 +132,11 @@ export default function AlertDialogSlide() {
           <Button variant="outlined" onClick={handleClose}>
             Cancelar
           </Button>
-          <Button variant="outlined" onClick={confirmationClose}>
+          <Button
+            sx={{ color: "red" }}
+            variant="outlined"
+            onClick={confirmationClose}
+          >
             Reiniciar
           </Button>
         </DialogActions>

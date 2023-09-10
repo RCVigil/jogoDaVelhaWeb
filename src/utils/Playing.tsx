@@ -4,23 +4,15 @@ import AppContext from "../contexts/AppContext";
 
 import "./_playing.sass";
 
-// import ClearIcon from "@mui/icons-material/Clear";
-// import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
-
-const stylePlaying = {
-  color: "#000",
-  fontWeight: 600,
-  marginLeft: "5vw",
-};
-
 export function PlayingX() {
   const { player1 } = useContext(AppContext);
   return (
-    <div style={stylePlaying}>
-      <AlertTitle sx={{ fontSize: "3vw" }}>É a vez de: </AlertTitle>
-      {/* <ClearIcon /> */}
+    <div className="gamerX firstDivGamer">
+      <AlertTitle sx={{ fontSize: "5vw", fontWeight: "600" }}>
+        É a vez de:{" "}
+      </AlertTitle>
       <br />
-      <p className="pGamerActive">
+      <p className="pGamerActive gamerX">
         <strong>{player1}</strong> jogar.
       </p>
     </div>
@@ -30,10 +22,12 @@ export function PlayingX() {
 export function PlayingO() {
   const { player2 } = useContext(AppContext);
   return (
-    <div style={stylePlaying}>
-      <AlertTitle sx={{ fontSize: "3vw" }}>É a vez de </AlertTitle>
+    <div className="gamerO firstDivGamer">
+      <AlertTitle sx={{ fontSize: "5vw", fontWeight: "600" }}>
+        É a vez de{" "}
+      </AlertTitle>
       <br />
-      <p className="pGamerActive">
+      <p className="pGamerActive gamerO">
         <strong>{player2}</strong> jogar.
       </p>
     </div>
