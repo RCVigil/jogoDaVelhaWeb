@@ -1,16 +1,17 @@
 // import React from 'react'
-import FooterGame from "./Component/FooterGame/FooterGame";
-import { GameSquare } from "./Component/gameSquare/GameSquare";
-import ParticipatingPeople from "./Component/participatingPeople/ParticipatingPeople";
-import AppProvider from "./providers/AppProvider";
+import FooterGame from './Component/FooterGame/FooterGame';
+import { GameSquare } from './Component/gameSquare/GameSquare';
+import ParticipatingPeople from './Component/participatingPeople/ParticipatingPeople';
+import PlayingSelectorOne from './Pages/PlayingSelector/PlayingSelectorOne';
+import PlayingSlelctorTwo from './Pages/PlayingSelector/PlayingSlelctorTwo';
+import AppProvider from './providers/AppProvider';
 
-import "./style/_app.sass";
+import './style/_app.sass';
 
 export default function App() {
   return (
-    <AppProvider>
       <div id="firstDivGame">
-        <header id="headerParticipating">
+        {/* <header id="headerParticipating">
           <ParticipatingPeople />
         </header>
         <hr className="lineDivisory" />
@@ -20,8 +21,9 @@ export default function App() {
         <hr className="lineDivisoryFooter" />
         <footer id="footerGame">
           <FooterGame />
-        </footer>
+        </footer> */}
+        <PlayingSelectorOne/>
+        <PlayingSlelctorTwo/>
       </div>
-    </AppProvider>
   );
 }
