@@ -7,6 +7,12 @@ interface IProvider {
 
 export default function AppProvider(props: IProvider): React.ReactElement {
   const { children } = props;
+
+  const [selectDifficulty, setSelectDifficulty] = React.useState("");
+  {
+    console.log("selectDifficulty no Provider =", selectDifficulty);
+  }
+
   const [player1, setPlayer1] = React.useState("");
   // {console.log("Player 1 no Provider =", player1)}
 
@@ -62,6 +68,8 @@ export default function AppProvider(props: IProvider): React.ReactElement {
     setWinningCells, // SEQUENCIA VITORIOSA
     xIsNext,
     setXIsNext, // Boolean se o X é o proximo a jogar ou nao
+    selectDifficulty,
+    setSelectDifficulty, // variável que armazena a dificuldade escolhida no jogo contra o Boot
   };
 
   // Se não tiver nenhuma operação a ser realizada, você pode remover o useEffect
