@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const PlayingSelectorOne = () => {
-  return (
-    <div>PlayingSelectorOne</div>
-  )
-}
+const PlayingSelectorOne: React.FC = () => {
+  return <div>PlayingSelectorOne</div>;
+};
 
 export default PlayingSelectorOne;
