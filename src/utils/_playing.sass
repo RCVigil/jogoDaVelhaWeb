@@ -1,15 +1,24 @@
+@use '../style/variables'
+@import '../style/utils/utilies'
+
 .firstDivGamer
-    margin-top: 5vh
-    text-shadow: 2px 4px 10px black
+    margin-top: 2rem
+    padding: 10px
+    text-align: center
 
     .pGamerActive
-        font-size: 7vw
+        font-size: 4rem
+        text-shadow: 6px 6px 5px variables.$sombraPlayers
 
 .gamerX
-    color: blue
-    font-weight: 900
-    text-shadow: 5px 10px 5px black
+    color: variables.$colorTextPlayer1
+    font-weight: 400
+    strong
+        font-weight: 900
+        text-transform: capitalize
 
 .gamerO
-    color: red
-    font-weight: 900
+    color: variables.$colorTextPlayer2
+    strong
+        font-weight: 900
+        text-transform: capitalize

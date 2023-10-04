@@ -58,7 +58,7 @@ export default function FooterGame() {
         </div>
       ) : (
         <div className="footerScoreBoard">
-          <h3>Quem vai ser o melhor da velha?</h3>
+          <h3>Quem vai ser o melhor do jogo da velha?</h3>
           <div className="placarFooter">
             <div>{!player1 ? "" : `${player1}: ${score.X}`}</div>
             <div>Velha: {score.draws}</div>

@@ -110,25 +110,18 @@ export const GameSquare: React.FC = () => {
         <table id="firstDivGameSquare">
           <tbody>
             {rows.map((_, r) => (
-              <tr key={r + 1}>
+              <tr key={r + 1} className="trGames">
                 {cols.map((_, c) => {
                   const cellKey = r * numCols + c + 1;
+                  const tdClassName = winningCells?.includes(cellKey)
+                    ? `tdGames square${cellKey} winning`
+                    : `tdGames square${cellKey}`;
                   return (
                     <td
                       key={cellKey}
                       data-cell-key={cellKey}
                       onClick={selectSquare}
-                      className={
-                        winningCells?.includes(cellKey) // Se a célula for parte da sequência vencedora...
-                          ? "tdGameS winning"
-                          : cellKey === 5
-                          ? "tdGameS square5"
-                          : cellKey === 2 || cellKey === 8
-                          ? "tdGameS square28"
-                          : cellKey === 4 || cellKey === 6
-                          ? "tdGameS square46"
-                          : "tdGameS"
-                      }
+                      className={tdClassName}
                     >
                       <p className="h1XO">{cells[cellKey - 1]}</p>
                     </td>
@@ -138,6 +131,7 @@ export const GameSquare: React.FC = () => {
             ))}
           </tbody>
         </table>
+
         {!xIsNext ? <PlayingO /> : <PlayingX />}
       </div>
     ) : (

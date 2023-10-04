@@ -6,6 +6,7 @@ import EmojiPeopleIcon from "@mui/icons-material/EmojiPeople";
 import ComputerIcon from "@mui/icons-material/Computer";
 
 import "./style/_app.sass";
+
 import AppContext from "./contexts/AppContext";
 
 export default function App() {

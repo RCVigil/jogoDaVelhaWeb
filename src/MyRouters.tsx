@@ -12,6 +12,10 @@ const MyRouters: React.FC = () => {
       element: <App />,
     },
     {
+      path: "*",
+      element: <App />,
+    },
+    {
       path: "onePerson",
       element: <PlayingSelectorOne />,
     },

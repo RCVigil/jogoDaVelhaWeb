@@ -1,31 +1,47 @@
+@use '../../style/variables'
+@import '../../style/utils/utilies'
+
 .layingActiveGS
   align-items: center
   display: flex
   flex-direction: column
-  justify-content: center
+  height: 45vh
+  justify-content: flex-end
+  width: 95vw
 
 #firstDivGameSquare 
-  background-color: transparent
-  height: 30vh
-  width: 50vw
+  background-color: rgba(249, 249, 249, 0.3)
+  border-radius: 60px
+  height: 90%
+  width: 92%
 
-  .tdGameS
+  .trGames
+    align-items: center
+    display: flex
+    height: 33.3%
+    justify-content: center
+    width: 100%
+
+  .tdGames
     align-self: center
     color: #000
-    height: 33%
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 100%
     width: 33%
 
-  .tdGameS.winning
-    background-color: rgb(255, 238, 0, 0.8)
+  .tdGames.winning
+    background-color: rgb(255, 238, 0, 0.9)
 
   .square5
     border: 0.5rem solid #000
 
-  .square28
+  .square2, .square8
     border-left: 0.5rem solid #000
     border-right: 0.5rem solid #000
 
-  .square46
+  .square4, .square6
     border-top: 0.5rem solid #000
     border-bottom: 0.5rem solid #000
 
@@ -50,11 +66,9 @@
     width: 70%
 
 .h1XO
-  align-content: center
   align-items: center
   display: flex
   height: 80%
-  margin: -8% 8% 3% 8%
-  font-size: 4rem
+  font-size: 8em
   justify-content: center
   width: 80%

@@ -9,28 +9,34 @@
   display: flex
   justify-content: center
   flex-direction: column
-  margin: 1% 0 0 5%
+  margin: 10% 0 0 5%
   height: 90vh
   width: 90vw
-  @include small-screen
-    margin: 0
 
   #headerParticipatingPST
     align-content: center
     align-items: center
+    background-color: transparent
     display: flex
-    justify-content: center
     flex-direction: row
+    justify-content: center
     min-height: 15%
     padding-bottom: 0.5rem
     width: 100%
 
+    #headerParticipatingPST:active
+      background-color: rgba(255, 255, 255, 0.4)
+
   .lineDivisoryPST,
   .lineDivisoryFooterPST
-    border: 0.15rem solid #f0f0f0
+    background-color: #fffb00
+    border: 0.5rem solid #fffb00
     border-radius: 0 0 1rem 1rem
-    margin-bottom: 2rem
-    width: 80%
+    margin: 2rem 0
+    width: 90%
+
+  .lineDivisoryPST
+    border-radius: 1rem 1rem 0 0
 
   #bodyGamePST
     display: flex
@@ -43,6 +49,5 @@
     background-color: rgba(255, 251, 0, 0.6)
     border-radius: 0.5rem 0.5rem 5rem 5rem
     display: flex
-    // gap: 1rem
     height: auto
     width: 100%
