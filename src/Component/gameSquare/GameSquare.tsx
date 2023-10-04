@@ -131,7 +131,6 @@ export const GameSquare: React.FC = () => {
             ))}
           </tbody>
         </table>
-
         {!xIsNext ? <PlayingO /> : <PlayingX />}
       </div>
     ) : (

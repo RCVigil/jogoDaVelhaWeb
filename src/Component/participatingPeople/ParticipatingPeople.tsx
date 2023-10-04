@@ -28,7 +28,6 @@ export default function ParticipatingPeople() {
               id="input-with-sx1"
               label="Player 1"
               sx={{
-                color: "#ffffff",
                 label: {
                   color: "blue",
                   fontSize: "1.5vh",
@@ -49,7 +48,6 @@ export default function ParticipatingPeople() {
               label="Player 2"
               variant="standard"
               sx={{
-                color: "#ffffff",
                 label: {
                   color: "red",
                   fontSize: "1.5vh",
