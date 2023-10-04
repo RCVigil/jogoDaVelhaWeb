@@ -16,6 +16,7 @@ export default function FooterGame() {
     stopPlaying,
     setCells,
     setWinningCells,
+    selectDifficulty,
   } = React.useContext(AppContext);
 
   const setNextGameButton = () => {
@@ -45,7 +46,13 @@ export default function FooterGame() {
             ) : score.X > score.O ? (
               score.X === score.O
             ) : (
-              <div>{!player2 ? "" : `${player2}: ${score.O}`}</div>
+              <div>
+                {!player2 && selectDifficulty ? (
+                  <div>{`Boot: ${score.O}`}</div>
+                ) : (
+                  `${player2}: ${score.O}`
+                )}
+              </div>
             )}
           </div>
         </div>
@@ -55,7 +62,11 @@ export default function FooterGame() {
           <div className="placarFooter">
             <div>{!player1 ? "" : `${player1}: ${score.X}`}</div>
             <div>Velha: {score.draws}</div>
-            <div>{!player2 ? "" : `${player2}: ${score.O}`}</div>
+            {selectDifficulty ? (
+              <div>{`Boot: ${score.O}`}</div>
+            ) : (
+              <div>{!player2 ? "" : `${player2}: ${score.O}`}</div>
+            )}
           </div>
         </div>
       )}

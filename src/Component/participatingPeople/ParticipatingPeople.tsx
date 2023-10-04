@@ -8,72 +8,83 @@ import AppContext from "../../contexts/AppContext";
 
 import "./_participatingPeople.sass";
 
-// Componente ParticipatingPeople que exibe dois campos de entrada para os jogadores.
+// Componente ParticipatingPeople que exibe um ou dois campos de entrada para os jogadores.
 export default function ParticipatingPeople() {
   // Obtém os valores dos jogadores e funções de atualização do contexto global do aplicativo.
-  const { player1, setPlayer1, player2, setPlayer2 } =
+  const { player1, setPlayer1, player2, setPlayer2, selectDifficulty } =
     React.useContext(AppContext);
 
   return (
-    // Componente de contêiner para os campos de entrada dos jogadores.
-    <Box id="playersHeader" /* sx={{ '& > :not(style)': { m: 1 } }} */>
-      {/* Div para o jogador 1 */}
-      <div className="divPlayer1">
-        <ClearIcon
-          // Ícone do jogador 1 que é o X.
-          sx={{ color: "blue", fontWeight: "700" }}
-        />
-        <TextField
-          // Valor do jogador 1 exibido no campo de entrada.
-          value={player1}
-          // Função de chamada quando o valor do jogador 1 é alterado.
-          onChange={(e: any) => setPlayer1(e.target.value)}
-          id="input-with-sx1"
-          // Rótulo para o campo de entrada do jogador 1.
-          label="Player 1"
-          sx={{
-            color: "#ffffff",
-            label: {
-              color: "blue",
-              fontSize: "1.5vh",
-              textAlign: "center",
-              fontWeight: "800",
-              display: "flex",
-              alignSelf: "center",
-            },
-          }}
-          // Variante do campo de entrada.
-          variant="standard"
-        />
-      </div>
-      {/* Div para o jogador 2 */}
-      <div className="divPlayer2">
-        <TextField
-          // Valor do jogador 2 exibido no campo de entrada.
-          value={player2}
-          // Função de chamada quando o valor do jogador 2 é alterado.
-          onChange={(e: any) => setPlayer2(e.target.value)}
-          id="input-with-sx2"
-          // Rótulo para o campo de entrada do jogador 2.
-          label="Player 2"
-          // Variante do campo de entrada.
-          variant="standard"
-          sx={{
-            color: "#ffffff",
-            label: {
-              color: "red",
-              fontSize: "1.5vh",
-              textAlign: "end",
-              fontWeight: "800",
-              width: "100%",
-            },
-          }}
-        />
-        <CircleOutlinedIcon
-          // Ícone de círculo para o jogador 2.
-          sx={{ color: "red", fontWeight: "700" }}
-        />
-      </div>
+    <Box id="playersHeader">
+      {!selectDifficulty ? (
+        // Renderizar dois jogadores
+        <>
+          <div className="divPlayer1">
+            <ClearIcon sx={{ color: "blue", fontWeight: "700" }} />
+            <TextField
+              value={player1}
+              onChange={(e: any) => setPlayer1(e.target.value)}
+              id="input-with-sx1"
+              label="Player 1"
+              sx={{
+                color: "#ffffff",
+                label: {
+                  color: "blue",
+                  fontSize: "1.5vh",
+                  textAlign: "center",
+                  fontWeight: "800",
+                  display: "flex",
+                  alignSelf: "center",
+                },
+              }}
+              variant="standard"
+            />
+          </div>
+          <div className="divPlayer2">
+            <TextField
+              value={player2}
+              onChange={(e: any) => setPlayer2(e.target.value)}
+              id="input-with-sx2"
+              label="Player 2"
+              variant="standard"
+              sx={{
+                color: "#ffffff",
+                label: {
+                  color: "red",
+                  fontSize: "1.5vh",
+                  textAlign: "end",
+                  fontWeight: "800",
+                  width: "100%",
+                },
+              }}
+            />
+            <CircleOutlinedIcon sx={{ color: "red", fontWeight: "700" }} />
+          </div>
+        </>
+      ) : (
+        // Renderizar apenas um jogador
+        <div className="divPlayer1">
+          <ClearIcon sx={{ color: "blue", fontWeight: "700" }} />
+          <TextField
+            value={player1}
+            onChange={(e: any) => setPlayer1(e.target.value)}
+            id="input-with-sx1"
+            label="Player 1"
+            sx={{
+              color: "#ffffff",
+              label: {
+                color: "blue",
+                fontSize: "1.5vh",
+                textAlign: "center",
+                fontWeight: "800",
+                display: "flex",
+                alignSelf: "center",
+              },
+            }}
+            variant="standard"
+          />
+        </div>
+      )}
     </Box>
   );
 }

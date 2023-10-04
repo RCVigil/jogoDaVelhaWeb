@@ -3,6 +3,7 @@ import AppContext from "../../contexts/AppContext";
 import { PlayingO, PlayingX } from "../../utils/Playing";
 
 import "./_gameSquare.sass";
+import PlayerOne from "./PlayerOne/PlayerOne";
 
 // Componente GameSquare que representa o tabuleiro do jogo.
 export const GameSquare: React.FC = () => {
@@ -20,6 +21,7 @@ export const GameSquare: React.FC = () => {
     setWinningCells,
     xIsNext,
     setXIsNext,
+    selectDifficulty,
   } = useContext(AppContext);
 
   const numRows = 3;
@@ -101,46 +103,50 @@ export const GameSquare: React.FC = () => {
     }
   };
 
-  return player2 !== "" && player1 !== "" ? (
-    // Renderiza o tabuleiro do jogo se os nomes dos jogadores estiverem definidos.
-    <div className="layingActiveGS">
-      <table id="firstDivGameSquare">
-        <tbody>
-          {rows.map((_, r) => (
-            <tr key={r + 1}>
-              {cols.map((_, c) => {
-                const cellKey = r * numCols + c + 1;
-                return (
-                  <td
-                    key={cellKey}
-                    data-cell-key={cellKey}
-                    onClick={selectSquare}
-                    className={
-                      winningCells?.includes(cellKey) // Se a célula for parte da sequência vencedora...
-                        ? "tdGameS winning"
-                        : cellKey === 5
-                        ? "tdGameS square5"
-                        : cellKey === 2 || cellKey === 8
-                        ? "tdGameS square28"
-                        : cellKey === 4 || cellKey === 6
-                        ? "tdGameS square46"
-                        : "tdGameS"
-                    }
-                  >
-                    <p className="h1XO">{cells[cellKey - 1]}</p>
-                  </td>
-                );
-              })}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      {!xIsNext ? <PlayingO /> : <PlayingX />}
-    </div>
+  return !selectDifficulty ? (
+    player2 !== "" && player1 !== "" ? (
+      // Renderiza o tabuleiro do jogo se os nomes dos jogadores estiverem definidos.
+      <div className="layingActiveGS">
+        <table id="firstDivGameSquare">
+          <tbody>
+            {rows.map((_, r) => (
+              <tr key={r + 1}>
+                {cols.map((_, c) => {
+                  const cellKey = r * numCols + c + 1;
+                  return (
+                    <td
+                      key={cellKey}
+                      data-cell-key={cellKey}
+                      onClick={selectSquare}
+                      className={
+                        winningCells?.includes(cellKey) // Se a célula for parte da sequência vencedora...
+                          ? "tdGameS winning"
+                          : cellKey === 5
+                          ? "tdGameS square5"
+                          : cellKey === 2 || cellKey === 8
+                          ? "tdGameS square28"
+                          : cellKey === 4 || cellKey === 6
+                          ? "tdGameS square46"
+                          : "tdGameS"
+                      }
+                    >
+                      <p className="h1XO">{cells[cellKey - 1]}</p>
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {!xIsNext ? <PlayingO /> : <PlayingX />}
+      </div>
+    ) : (
+      // Exibe uma mensagem de digitação dos nomes dos jogadores se eles não estiverem definidos.
+      <div className="firstDivGameSquareH1">
+        <h1 className="h1Names">Por favor digite o nome dos jogadores</h1>
+      </div>
+    )
   ) : (
-    // Exibe uma mensagem de digitação dos nomes dos jogadores se eles não estiverem definidos.
-    <div className="firstDivGameSquareH1">
-      <h1 className="h1Names">Por favor digite o nome dos jogadores</h1>
-    </div>
+    <PlayerOne />
   );
 };

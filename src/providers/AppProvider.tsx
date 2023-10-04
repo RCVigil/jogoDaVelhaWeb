@@ -8,19 +8,21 @@ interface IProvider {
 export default function AppProvider(props: IProvider): React.ReactElement {
   const { children } = props;
 
-  const [selectDifficulty, setSelectDifficulty] = React.useState("");
+  const [selectDifficulty, setSelectDifficulty] = React.useState("easy");
   {
     console.log("selectDifficulty no Provider =", selectDifficulty);
   }
 
-  const [player1, setPlayer1] = React.useState("");
+  const [player1, setPlayer1] = React.useState("Rodrigo");
   // {console.log("Player 1 no Provider =", player1)}
 
   const [player2, setPlayer2] = React.useState("");
   // {console.log("Player 2 no Provider =", player2)}
 
   const [victory, setVictory] = React.useState("");
-  // {console.log("Victory no Provider =", victory)}
+  {
+    console.log("Victory no Provider =", victory);
+  }
 
   const [score, setScore] = React.useState({ X: 0, O: 0, draws: 0 });
   // {console.log("score no Provider =", score)}
@@ -37,15 +39,15 @@ export default function AppProvider(props: IProvider): React.ReactElement {
   const [winningCells, setWinningCells] = React.useState<Array<number>>();
   // {console.log("winningCells no Provider =", winningCells)}
 
-  const [xIsNext, setXIsNext] = React.useState<boolean>(true);
-  // {console.log("xIsNext no Provider =", xIsNext)}
+  const [xIsNext, setXIsNext] = React.useState<boolean>(false);
+  // { console.log('xIsNext no Provider =', xIsNext); }
 
   const numRows = 3;
   const numCols = 3;
 
   const initialCells = Array(numRows * numCols).fill(null);
   const [cells, setCells] = React.useState<Array<string | null>>(initialCells);
-  // {console.log("cells no Provider =", cells)}
+  // { console.log('cells no Provider =', cells); }
 
   const object = {
     player1,

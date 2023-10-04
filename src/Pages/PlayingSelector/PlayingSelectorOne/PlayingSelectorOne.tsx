@@ -3,6 +3,7 @@ import {
   Button,
   FormControl,
   FormControlLabel,
+  FormHelperText,
   FormLabel,
   Paper,
   Radio,
@@ -12,13 +13,19 @@ import {
 
 import "./_playingSelectorOne.sass";
 // eslint-disable-next-line import/extensions
-import AppContext from "../../contexts/AppContext";
+import { Link } from "react-router-dom";
+import AppContext from "../../../contexts/AppContext";
 
 const PlayingSelectorOne: React.FC = () => {
-  const { setSelectDifficulty } = React.useContext(AppContext);
+  const { selectDifficulty, setSelectDifficulty } =
+    React.useContext(AppContext);
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectDifficulty((event.target as HTMLInputElement).value);
+  };
+
+  const disabledButton = () => {
+    !selectDifficulty ? (disabled = true) : (disabled = false);
   };
 
   return (
@@ -108,21 +115,44 @@ const PlayingSelectorOne: React.FC = () => {
             }}
           />
         </RadioGroup>
+        <FormHelperText
+          sx={{
+            paddingTop: "30px",
+            fontSize: "1.5rem",
+            textShadow: "2px 2px 6px orange",
+            fontWeight: "700",
+            textTransform: "capitalize",
+          }}
+        >
+          {" "}
+          Selecione a dificuldade para liberar o botão de Jogar.
+        </FormHelperText>
       </FormControl>
-      <Button
-        variant="outlined"
-        sx={{
+      <Link
+        to={`${selectDifficulty}`}
+        style={{
           backgroundColor: "rgba(255, 255, 255, 0.3)",
-          bottom: "10vh",
-          color: "rgb(255, 255, 0)",
-          fontSize: "1.5rem",
-          fontWeight: "900",
+          bottom: "15vh",
+          display: "flex",
+          textDecoration: "none",
           position: "relative",
           width: "40%",
         }}
       >
-        Jogar
-      </Button>
+        <Button
+          variant="outlined"
+          disabled={!selectDifficulty ? true : false}
+          // onClick={disabledButton}
+          sx={{
+            color: "rgb(255, 255, 0)",
+            fontSize: "2.5rem",
+            fontWeight: "900",
+            width: "100%",
+          }}
+        >
+          Jogar
+        </Button>
+      </Link>
     </Paper>
   );
 };

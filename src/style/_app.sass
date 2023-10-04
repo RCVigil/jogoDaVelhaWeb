@@ -3,45 +3,26 @@
 
 #firstDivGame
   // border: 1px solid white
-  align-content: center
+  // align-content: center
   align-items: center
-  align-self: center
+  // align-self: center
   display: flex
+  gap: 5rem
   justify-content: center
   margin: 1% 0 0 5%
   height: 90vh
   width: 90vw
-  @include small-screen
-    margin: 0
+  align-items: center
+  display: flex
+  justify-content: center
+  flex-direction: column
 
-  #headerParticipating
-    align-content: center
-    align-items: center
-    display: flex
-    justify-content: center
-    flex-direction: row
-    min-height: 15%
-    padding-bottom: 0.5rem
-    width: 100%
+  .linkButAPP
+    text-decoration: none
 
-  .lineDivisory,
-  .lineDivisoryFooter
-    border: 0.15rem solid #f0f0f0
-    border-radius: 0 0 1rem 1rem
-    margin-bottom: 2rem
-    width: 80%
+    .buttonSelectionApp
+      font-size: 1.5rem
 
-  #bodyGame
-    display: flex
-    justify-content: center
-    height: 60%
-    padding-bottom: 2rem
-    width: 100%
-
-  #footerGame
-    background-color: rgba(255, 251, 0, 0.6)
-    border-radius: 0.5rem 0.5rem 5rem 5rem
-    display: flex
-    // gap: 1rem
-    height: auto
-    width: 100%
+      svg
+        height: 2rem
+        width: 2rem

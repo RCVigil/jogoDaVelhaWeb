@@ -1,11 +1,11 @@
-import React from "react";
+import * as React from "react";
 import ParticipatingPeople from "../../Component/participatingPeople/ParticipatingPeople";
 import { GameSquare } from "../../Component/gameSquare/GameSquare";
 import FooterGame from "../../Component/FooterGame/FooterGame";
 
-import "./_playingSlelctorTwo.sass";
+import "./_renderingWith1Player.sass";
 
-const PlayingSlelctorTwo: React.FC = () => (
+const RenderingWith1Player: React.FC = () => (
   <div id="firstDivGamePST">
     <header id="headerParticipatingPST">
       <ParticipatingPeople />
@@ -21,4 +21,4 @@ const PlayingSlelctorTwo: React.FC = () => (
   </div>
 );
 
-export default PlayingSlelctorTwo;
+export default RenderingWith1Player;
