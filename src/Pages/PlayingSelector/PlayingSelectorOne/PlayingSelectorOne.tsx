@@ -24,10 +24,6 @@ const PlayingSelectorOne: React.FC = () => {
     setSelectDifficulty((event.target as HTMLInputElement).value);
   };
 
-  const disabledButton = () => {
-    !selectDifficulty ? (disabled = true) : (disabled = false);
-  };
-
   return (
     <Paper
       sx={{
