@@ -1,15 +1,11 @@
-const BotLogic = (
-  selectDifficulty: string,
-  cells: string | null,
-  victory: string,
-) => {
+const BotLogic = (selectDifficulty: string, cells: any, victory: string) => {
   // Função para a jogada do bot no nível Fácil
   console.log("Entrada no BootLogic =     ", selectDifficulty, cells);
   const easyMove = () => {
     // Crie uma matriz de índices das células vazias
     const emptyCells = cells
-      .map((cell: null, index: any) => (cell === null ? index : null))
-      .filter((index) => index !== null);
+      ?.map((cell: any, index: any) => (cell === null ? index : null))
+      ?.filter((index: any) => index !== null);
 
     // Verifique se há células vazias
     if (emptyCells.length === 0) {

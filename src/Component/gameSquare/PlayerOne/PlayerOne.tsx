@@ -64,7 +64,7 @@ const PlayerOne = () => {
   React.useEffect(() => {
     const winner = checkWinner();
     if (winner) {
-      updateScore(winner === "draw" ? "Empatou" : winner);
+      updateScore(winner === "draw" ? "draws" : winner);
       setStopPlaying(true); // Define stopPlaying como true quando há um vencedor ou empate.
     }
   }, [cells]);
